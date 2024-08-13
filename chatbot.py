@@ -18,12 +18,14 @@ def get_response(prompt):
 
 # streamlit interface
 st.set_page_config(page_title="Simple ChatBot!", layout='centered')
-st.title("Chatbot 🤖")
-st.write("Powered by Muhammad Jawad.")
+st.title("ChatBot 🤖")
+st.write("Create by Muhammad Jawad.")
 
-# Streamlit
+
+# form
 with st.form(key="chat-form", clear_on_submit=True):
     # promopt input text using streamlit
+    st.write("Google API use. ")
     prompt = st.text_input("", max_chars=2000)
     # send button
     submit_button = st.form_submit_button("Send")
@@ -32,7 +34,44 @@ with st.form(key="chat-form", clear_on_submit=True):
         if prompt:
             response = get_response(prompt)
             # display response 
-            st.write(response)
-            # st.session_state.history.append((prompt, response))
+            # st.write(response)
+            st.session_state.history.append((prompt, response))
         else:
             st.warning("Please enter a prompt.")
+            
+# chat-history
+if "history" not in st.session_state:
+    st.session_state["history"] = []
+
+# display chat history
+for user_mgs, bot_mgs in st.session_state.history:
+    st.markdown(f"""
+                <div style="
+                    background-color: #d1d3e0;
+                    border-radius: 15px;    
+                    padding: 10px 15px;
+                    margin: 5px 0;
+                    max-width: 70%;
+                    text-align: left;
+                    display: inline-block;
+                    color:black;
+                ">
+                <p style="margin:0; font-size: 16px; line-height: 1.5"><b>You: </b>{user_mgs}</p>
+                </div>
+                """, unsafe_allow_html=True)
+    
+    st.markdown(f"""
+                <div style="
+                    background-color: #e1ffc7;
+                    border-radius: 15px;
+                    padding: 10px 15px;
+                    margin: 5px 0;
+                    max-width: 70%;
+                    text-align: left;
+                    display: inline-block;
+                    color: black;
+                ">
+                <p style="margin:0; font-size: 16px; line-height: 1.5"><b>Bot: </b>{bot_mgs}</p>
+                </div>
+                """, unsafe_allow_html=True)
+
