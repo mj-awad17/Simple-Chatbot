@@ -20,7 +20,7 @@ st.set_page_config(page_title="Simple ChatBot!", layout='centered')
 st.title("Chatbot 🤖")
 st.write("Powered by Muhammad Jawad.")
 
-# Streamlit form
+# Streamlit
 with st.form(key="chat-form", clear_on_submit=True):
     # promopt input text using streamlit
     prompt = st.text_input("", max_chars=2000)
@@ -31,6 +31,7 @@ with st.form(key="chat-form", clear_on_submit=True):
         if prompt:
             response = get_response(prompt)
             # display response 
-            st.session_state.history.append((prompt, response))
+            st.write(response)
+            # st.session_state.history.append((prompt, response))
         else:
             st.warning("Please enter a prompt.")
