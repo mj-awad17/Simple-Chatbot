@@ -1,9 +1,9 @@
-# print("Chatbot working ...")
+api = "AIzaSyAcPWXRJG1apK5N1RipwPVrs3wYACoztLI"
+
+print("Chatbot working ...")
 # Libraries
 import streamlit as st
 import google.generativeai as genai
-
-api = st.secrets("Google_API_KEY")
 
 # Google API configure
 genai.configure(api_key=api)
@@ -18,7 +18,7 @@ def get_response(prompt):
 
 # streamlit interface
 st.set_page_config(page_title="Simple ChatBot!", layout='centered')
-st.title("✨ Simple ChatBot 🤖 ✨")
+st.title("ChatBot 🤖")
 st.write("Create by Muhammad Jawad.")
 
 
