@@ -1,9 +1,9 @@
-api = "AIzaSyAcPWXRJG1apK5N1RipwPVrs3wYACoztLI"
-
-print("Chatbot working ...")
+# print("Chatbot working ...")
 # Libraries
 import streamlit as st
 import google.generativeai as genai
+
+api = st.secret("Google_API_KEY")
 
 # Google API configure
 genai.configure(api_key=api)
@@ -18,7 +18,7 @@ def get_response(prompt):
 
 # streamlit interface
 st.set_page_config(page_title="Simple ChatBot!", layout='centered')
-st.title("ChatBot 🤖")
+st.title("✨ Simple ChatBot 🤖 ✨")
 st.write("Create by Muhammad Jawad.")
 
 
@@ -26,6 +26,7 @@ st.write("Create by Muhammad Jawad.")
 with st.form(key="chat-form", clear_on_submit=True):
     # promopt input text using streamlit
     st.write("Google API use. ")
+    
     prompt = st.text_input("", max_chars=2000)
     # send button
     submit_button = st.form_submit_button("Send")
