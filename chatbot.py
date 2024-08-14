@@ -1,12 +1,23 @@
-api = "AIzaSyAcPWXRJG1apK5N1RipwPVrs3wYACoztLI"
-
-print("Chatbot working ...")
 # Libraries
 import streamlit as st
 import google.generativeai as genai
+import os
+
 
 # Google API configure
-genai.configure(api_key=api)
+api_key = os.getenv('GOOGLE_API_KEY')
+
+# print("api",api)
+# print("api_key",api)
+if api_key == "":
+    st.error("API key not found. Please set the GOOGLE_API_KEY environment variable.")
+else:
+    genai.configure(api_key=api_key)
+
+
+
+# # Google API configure
+# genai.configure(api_key=api)
 
 # initalize generative ai model
 model = genai.GenerativeModel('gemini-1.5-flash')
@@ -75,4 +86,3 @@ for user_mgs, bot_mgs in st.session_state.history:
                 <p style="margin:0; font-size: 16px; line-height: 1.5"><b>Bot: </b>{bot_mgs}</p>
                 </div>
                 """, unsafe_allow_html=True)
-
