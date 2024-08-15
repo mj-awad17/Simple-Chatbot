@@ -10,7 +10,7 @@ Welcome to the **Simple Chatbot** project! This is a Python-based application th
 ## Features
 
 - **Interactive Chat Interface**: Users can engage in a chat session with the bot via a user-friendly web interface.
-- **Real-time Responses**: The chatbot responds to user inputs in real-time.
+<!-- - **Real-time Responses**: The chatbot responds to user inputs in real-time. -->
 - **Efficient Backend**: The application is built using Streamlit for a seamless and responsive user experience.
 
 ## Technologies Used
