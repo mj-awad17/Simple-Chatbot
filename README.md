@@ -7,6 +7,9 @@
 
 Welcome to the **Simple Chatbot** project! This is a Python-based application that leverages the Streamlit library to create an interactive web-based chatbot interface. The chatbot is designed to facilitate user interaction in a simple and intuitive manner.
 
+## Demo 
+[Simple-chatbot](https://mj-awad17-simple-chatbot-chatbot-rnpyp2.streamlit.app/)
+
 ## Features
 
 - **Interactive Chat Interface**: Users can engage in a chat session with the bot via a user-friendly web interface.
